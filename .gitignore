@@ -1,52 +1,33 @@
-# Prerequisites
-*.d
-
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
-
-# Linker output
-*.ilk
-*.map
-*.exp
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
-
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+#include <stdio.h>
+int main ()
+{
+	/*6 5 4   
+	4  3  2*/
+	int a[]={9,8,7,6,5,4}; 
+	int len=sizeof(a)/sizeof(a[0]);
+	int len1=len;
+	int max,c=0;
+	for (int i=0;i<len1;len1--,i++)
+	{
+		for (int i=0;i<len1;i++)
+		{
+			if (a[i]>max) 
+			{
+			max=a[i];
+			c=i;
+			}
+			if (i==len1-1)
+			{
+			int t=max;
+			max=a[len1-1];
+			a[len1-1]=t;
+			a[c]=max;
+			}
+		}
+	}
+	for (int i=0;i<len;i++)
+	{
+		printf ("%d ",a[i]);
+	}
+	return 0;
+}
